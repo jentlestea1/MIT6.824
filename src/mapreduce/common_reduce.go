@@ -105,6 +105,7 @@ func doReduce(
 	}
 	enc := json.NewEncoder(outputFile)
 	for i,_:= range Keys{
+		print(Keys[i],kvMap[Keys[i]],"\n")
 		err := enc.Encode(KeyValue{Keys[i],reduceF(Keys[i],kvMap[Keys[i]])})
 		if err!=nil{
 			log.Fatal(err)
