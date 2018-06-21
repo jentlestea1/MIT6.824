@@ -62,15 +62,46 @@ func doMap(
 	// Remember to close the file after you have written all the values!
 	//
 	// Your code here (Part I).
-	content,err := ioutil.ReadFile(inFile)
+
+	file,err := ioutil.ReadFile(inFile)
 	if err!=nil{
-		log.Fatal(err)
+		log.Fatal("doMap(): ",err)
+	} 
+	//注意make的只能用赋值
+	//使用var []type 的可以使用append
+	outputFiles := make([]*os.File,nReduce)
+	//保存输出文件名
+	for i:=0; i<nReduce; i++{
+		fileName := reduceName(jobName,mapTask,i)
+		outputFile,err:= os.Create(fileName)   //返回*os.File
+		if err!=nil{
+			log.Fatal("doMap() os.Create : ",err)
+		}
+		outputFiles[i] = outputFile
+		//outputFiles = append(outputFiles,outputFile)
+		//fmt.Println(outputFiles)
+
 	} 
 
-	pairs :=mapF(inFile,string(content))
-	//seek r
-	var fp *os.File
-	var enc *json.Encoder
+	//写不进去文件
+
+	pairs :=mapF(inFile,string(file))
+	//为pair选择输出文件
+	for _ , kv := range pairs{
+		index := ihash(kv.Key)%nReduce
+		enc :=json.NewEncoder(outputFiles[index])
+		enc.Encode(kv)
+		if err!=nil{
+			log.Fatal("doMap() Encode: ",err)
+		}
+	}
+
+	for i:=0; i<nReduce; i++{
+		outputFiles[i].Close()
+	}
+	
+/*
+	//呵呵一开始不会写
 	fp,err = os.OpenFile("mrtmp.test-0-0", os.O_RDWR|os.O_CREATE, 0755)
 	enc=json.NewEncoder(fp)
 	for i , _ := range pairs{
@@ -88,7 +119,8 @@ func doMap(
 		//
 	}
 	fp.Close()
-	//
+*/
+
 }
 
 func ihash(s string) int {

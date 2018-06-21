@@ -1,11 +1,11 @@
 package mapreduce
 
 import(
-	"fmt"
+	//"fmt"
 	"os"
 	"encoding/json"
 	"log"
-	//"sort"
+	"sort"
 )
 type KeyValues []KeyValue
 func (kv KeyValues) Len() int {
@@ -64,13 +64,65 @@ func doReduce(
 	//
 	// Your code here (Part I).
 	//
+
+	//得到原文件名,并将打开的文件描述符保存
+	//var intermediateFilesName []string
+	var intermediateFiles []*os.File
+
+	//出现错误：multiple-value os.Open() in single-value context
+	//解决方法：缺少了err
+	for i:=0; i<nMap; i++{
+		openFile,err := os.Open(reduceName(jobName,i,reduceTask))
+		if err!=nil{
+			log.Fatal("doReduce() : ",err)
+		}
+		intermediateFiles = append(intermediateFiles,openFile)
+	}
+	//对于所有文件，读出KeyValue数组
+	kvMap := make(map[string][]string)
+	for _ , file := range intermediateFiles{
+		dec := json.NewDecoder(file)
+		var kv KeyValue
+		for dec.More() {
+			err := dec.Decode(&kv)
+			if err!=nil{
+				log.Fatal("doReduce() : ",err)
+			}
+			kvMap[kv.Key] = append(kvMap[kv.Key],kv.Value)
+		}
+	}
+	//对Key进行排序
+	var Keys []string
+	for k := range kvMap{
+		Keys = append(Keys,k)
+	}
+	sort.Strings(Keys)
+
+	//对每一个key和其对应的[]string 输入到reduceF中,将结果输出到outFile
+	outputFile,err := os.Create(outFile)
+	if err!=nil {
+		log.Fatal("doReduce() :",err)
+	}
+	enc := json.NewEncoder(outputFile)
+	for i,_:= range Keys{
+		err := enc.Encode(KeyValue{Keys[i],reduceF(Keys[i],kvMap[Keys[i]])})
+		if err!=nil{
+			log.Fatal(err)
+		}
+	}
+	for _, file := range intermediateFiles{
+		file.Close()
+	}
+	outputFile.Close()
+
+/*
 	var s string
 	w_fp,err1 := os.OpenFile(outFile, os.O_RDWR|os.O_CREATE, 0755)
 	if err1!=nil{
 		log.Fatal(err1)
 	}
 	enc:= json.NewEncoder(w_fp)
-	fileName := reduceName(jobName,nMap,reduceTask)
+	//fileName := reduceName(jobName,nMap,reduceTask)
 	fp,_ := os.Open(fileName)
 	fmt.Println("fileName:",fileName)
 	fmt.Println("outFile:",outFile)
@@ -79,13 +131,14 @@ func doReduce(
 
 	for dec.More() {
 		dec.Decode(&v)
-		//fmt.Println(v)
-		err := enc.Encode(KeyValue{v.Key,/*reduceF(v.Key,s)*/s})
+		fmt.Println(v)
+		err := enc.Encode(KeyValue{v.Key,reduceF(v.Key,s)})
 		if err!=nil{
 			log.Fatal(err)
 		}
 	}
 	w_fp.Close()
 	fp.Close()
+*/
 
 }

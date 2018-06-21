@@ -1,0 +1,3 @@
+#2018-6-21
+在github上提交了代码，对common_map.go和common_reduce.go作出修改，目前跑不通
+go run test -Sequential
