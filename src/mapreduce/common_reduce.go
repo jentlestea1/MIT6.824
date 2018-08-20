@@ -1,7 +1,7 @@
 package mapreduce
 
 import(
-	//"fmt"
+	"fmt"
 	"os"
 	"encoding/json"
 	"log"
@@ -67,11 +67,13 @@ func doReduce(
 
 	//得到原文件名,并将打开的文件描述符保存
 	//var intermediateFilesName []string
+	//fmt.Println("do reduce start\n")
 	var intermediateFiles []*os.File
 
 	//出现错误：multiple-value os.Open() in single-value context
 	//解决方法：缺少了err
 	for i:=0; i<nMap; i++{
+		fmt.Println(reduceName(jobName,i,reduceTask),"\n",i,reduceTask)
 		openFile,err := os.Open(reduceName(jobName,i,reduceTask))
 		if err!=nil{
 			log.Fatal("doReduce() : ",err)
@@ -88,6 +90,7 @@ func doReduce(
 			if err!=nil{
 				log.Fatal("doReduce() : ",err)
 			}
+			//fmt.Println("kv.key:",kv.Key," kv.value:",kv.Value)
 			kvMap[kv.Key] = append(kvMap[kv.Key],kv.Value)
 		}
 	}
@@ -105,7 +108,7 @@ func doReduce(
 	}
 	enc := json.NewEncoder(outputFile)
 	for i,_:= range Keys{
-		print(Keys[i],kvMap[Keys[i]],"\n")
+		//print(Keys[i]," ",kvMap[Keys[i]],"\n")
 		err := enc.Encode(KeyValue{Keys[i],reduceF(Keys[i],kvMap[Keys[i]])})
 		if err!=nil{
 			log.Fatal(err)

@@ -34,8 +34,9 @@ func mapF(filename string, contents string) []mapreduce.KeyValue {
 		kvMap[w]++;
 	}
 	for k , _:= range kvMap{
-		ret = append(ret,mapreduce.KeyValue{k,string(kvMap[k])})
+		ret = append(ret,mapreduce.KeyValue{k,strconv.Itoa(kvMap[k])})
 	}
+	//fmt.Println(filename,"mapF end\n")
 	return ret
 
 }
@@ -47,11 +48,14 @@ func mapF(filename string, contents string) []mapreduce.KeyValue {
 //
 func reduceF(key string, values []string) string {
 	// Your code here (Part II).
+	//fmt.Println("reduceF start\n")
+	//fmt.Println("string values:",len(values))
 	//计算所有values的整形和
 	count := 0
-	print("key :",key,"  values: ",values,"\n")
+	//print("key :",key,"  values: ",values,"\n")
 	for _,v := range values{
 		tmp, err := strconv.Atoi(v)
+		//print("value:",v,"\n")
 		if err!=nil{
 			log.Fatal("wc.go reduceF() : ",err)
 		}
