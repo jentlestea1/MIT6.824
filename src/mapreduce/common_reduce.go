@@ -72,6 +72,7 @@ func doReduce(
 
 	//出现错误：multiple-value os.Open() in single-value context
 	//解决方法：缺少了err
+	//fmt.Printf("outFile:%v",outFile)
 	for i:=0; i<nMap; i++{
 		fmt.Println(reduceName(jobName,i,reduceTask),"\n",i,reduceTask)
 		openFile,err := os.Open(reduceName(jobName,i,reduceTask))

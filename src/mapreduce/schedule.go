@@ -44,25 +44,23 @@ func schedule(jobName string, mapFiles []string, nReduce int, phase jobPhase, re
 
 
 	//fmt.Printf("mapFiles:%v\n",mapFiles)
-	taskNum := 1
-	fmt.Printf("taskNum:%v",&taskNum)
 	for i:=0;i<ntasks;i++ {                    
 		wg.Add(1)
 		go func(task_number int){                   //非闭包结构内部函数不会改变上层函数局部变量的值
 			//for {
 			rpc_address := <-registerChan
 			fmt.Printf("rpc_address: %v\n",rpc_address)
-			var ret bool
+			var ret bool;
 			//call map work
-			//fmt.Printf("task_number:%v\n",task_number)
 			args := &DoTaskArgs{jobName,mapFiles[task_number],phase,task_number,nios}
-			//fmt.Printf("-----task_number:%v\n",task_number)
 			ret = call(rpc_address, "Worker.DoTask",args,nil)
-			//fmt.Printf("ret:%v\n",ret)
-			//fmt.Printf("task_number:%v",&task_number)
-			for {
-				if ret==false{
-					continue
+			for { 
+				for ret==false{
+					fmt.Printf("prio rpc_address: %v\n",rpc_address)
+					rpc_address = <-registerChan
+					fmt.Printf("new rpc_address: %v\n",rpc_address)
+					//continue
+					ret = call(rpc_address, "Worker.DoTask",args,nil)
 				}
 				wg.Done()
 				registerChan <- rpc_address

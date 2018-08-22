@@ -1,17 +1,529 @@
-2018/08/20 10:32:29 rpc.Register: method "CleanupFiles" has 1 input parameters; needs exactly three
-2018/08/20 10:32:29 rpc.Register: method "Lock" has 1 input parameters; needs exactly three
-2018/08/20 10:32:29 rpc.Register: method "Unlock" has 1 input parameters; needs exactly three
-2018/08/20 10:32:29 rpc.Register: method "Wait" has 1 input parameters; needs exactly three
-/var/tmp/824-501/mr25915-master: Starting Map/Reduce task test
+start Distributed
+2018/08/22 17:12:20 rpc.Register: method "CleanupFiles" has 1 input parameters; needs exactly three
+2018/08/22 17:12:20 rpc.Register: method "Lock" has 1 input parameters; needs exactly three
+2018/08/22 17:12:20 rpc.Register: method "Unlock" has 1 input parameters; needs exactly three
+2018/08/22 17:12:20 rpc.Register: method "Wait" has 1 input parameters; needs exactly three
+2018/08/22 17:12:20 rpc.Register: method "Lock" has 1 input parameters; needs exactly three
+/var/tmp/824-501/mr4890-master: Starting Map/Reduce task test
+2018/08/22 17:12:20 rpc.Register: method "Unlock" has 1 input parameters; needs exactly three
+2018/08/22 17:12:20 rpc.Register: method "Lock" has 1 input parameters; needs exactly three
+2018/08/22 17:12:20 rpc.Register: method "Unlock" has 1 input parameters; needs exactly three
 Schedule: 20 mapPhase mapPhase tasks (10 I/Os)
+mr.workers:0
+i:0
+i:0
+i:1
+i:2
+rpc_address: /var/tmp/824-501/mr4890-worker1
+rpc_address: /var/tmp/824-501/mr4890-worker0
+/var/tmp/824-501/mr4890-worker0: given mapPhase task #9 on file 824-mrinput-9.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker1: given mapPhase task #0 on file 824-mrinput-0.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker0: mapPhase task #9 done
+rpc_address: /var/tmp/824-501/mr4890-worker0
+/var/tmp/824-501/mr4890-worker0: given mapPhase task #1 on file 824-mrinput-1.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker1: mapPhase task #0 done
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker1: given mapPhase task #2 on file 824-mrinput-2.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker0: mapPhase task #1 done
+rpc_address: /var/tmp/824-501/mr4890-worker0
+/var/tmp/824-501/mr4890-worker1: mapPhase task #2 done
+/var/tmp/824-501/mr4890-worker0: given mapPhase task #3 on file 824-mrinput-3.txt (nios: 10)
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker1: given mapPhase task #4 on file 824-mrinput-4.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker0: mapPhase task #3 done
+/var/tmp/824-501/mr4890-worker1: mapPhase task #4 done
+rpc_address: /var/tmp/824-501/mr4890-worker0
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker0: given mapPhase task #5 on file 824-mrinput-5.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker1: given mapPhase task #6 on file 824-mrinput-6.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker1: mapPhase task #6 done
+/var/tmp/824-501/mr4890-worker0: mapPhase task #5 done
+rpc_address: /var/tmp/824-501/mr4890-worker0
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker0: given mapPhase task #7 on file 824-mrinput-7.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker1: given mapPhase task #8 on file 824-mrinput-8.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker1: mapPhase task #8 done
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker1: given mapPhase task #14 on file 824-mrinput-14.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker0: mapPhase task #7 done
+rpc_address: /var/tmp/824-501/mr4890-worker0
+/var/tmp/824-501/mr4890-worker0: given mapPhase task #10 on file 824-mrinput-10.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker1: mapPhase task #14 done
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker1: given mapPhase task #11 on file 824-mrinput-11.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker0: mapPhase task #10 done
+rpc_address: /var/tmp/824-501/mr4890-worker0
+/var/tmp/824-501/mr4890-worker0: given mapPhase task #12 on file 824-mrinput-12.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker1: mapPhase task #11 done
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker1: given mapPhase task #13 on file 824-mrinput-13.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker0: mapPhase task #12 done
+rpc_address: /var/tmp/824-501/mr4890-worker0
+/var/tmp/824-501/mr4890-worker0: given mapPhase task #16 on file 824-mrinput-16.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker1: mapPhase task #13 done
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker1: given mapPhase task #15 on file 824-mrinput-15.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker0: mapPhase task #16 done
+rpc_address: /var/tmp/824-501/mr4890-worker0
+/var/tmp/824-501/mr4890-worker0: given mapPhase task #17 on file 824-mrinput-17.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker1: mapPhase task #15 done
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker1: given mapPhase task #18 on file 824-mrinput-18.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker0: mapPhase task #17 done
+rpc_address: /var/tmp/824-501/mr4890-worker0
+/var/tmp/824-501/mr4890-worker0: given mapPhase task #19 on file 824-mrinput-19.txt (nios: 10)
+/var/tmp/824-501/mr4890-worker1: mapPhase task #18 done
+/var/tmp/824-501/mr4890-worker0: mapPhase task #19 done
 Schedule: mapPhase done
-2018/08/20 10:32:29 rpc.Register: method "Lock" has 1 input parameters; needs exactly three
-2018/08/20 10:32:29 rpc.Register: method "Lock" has 1 input parameters; needs exactly three
-2018/08/20 10:32:29 rpc.Register: method "Unlock" has 1 input parameters; needs exactly three
-2018/08/20 10:32:29 rpc.Register: method "Unlock" has 1 input parameters; needs exactly three
 Schedule: 10 reducePhase mapPhase tasks (20 I/Os)
+mr.workers:2
+i:0
+i:1
+rpc_address: /var/tmp/824-501/mr4890-worker0
+i:2
+rpc_address: /var/tmp/824-501/mr4890-worker1
+prio rpc_address: /var/tmp/824-501/mr4890-worker0
+/var/tmp/824-501/mr4890-worker1: given reducePhase task #4 on file 824-mrinput-4.txt (nios: 20)
+mrtmp.test-0-4 
+ 0 4
+mrtmp.test-1-4 
+ 1 4
+mrtmp.test-2-4 
+ 2 4
+mrtmp.test-3-4 
+ 3 4
+mrtmp.test-4-4 
+ 4 4
+mrtmp.test-5-4 
+ 5 4
+mrtmp.test-6-4 
+ 6 4
+mrtmp.test-7-4 
+ 7 4
+mrtmp.test-8-4 
+ 8 4
+mrtmp.test-9-4 
+ 9 4
+mrtmp.test-10-4 
+ 10 4
+mrtmp.test-11-4 
+ 11 4
+mrtmp.test-12-4 
+ 12 4
+mrtmp.test-13-4 
+ 13 4
+mrtmp.test-14-4 
+ 14 4
+mrtmp.test-15-4 
+ 15 4
+mrtmp.test-16-4 
+ 16 4
+mrtmp.test-17-4 
+ 17 4
+mrtmp.test-18-4 
+ 18 4
+mrtmp.test-19-4 
+ 19 4
+/var/tmp/824-501/mr4890-worker1: reducePhase task #4 done
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker1: given reducePhase task #0 on file 824-mrinput-0.txt (nios: 20)
+mrtmp.test-0-0 
+ 0 0
+mrtmp.test-1-0 
+ 1 0
+mrtmp.test-2-0 
+ 2 0
+mrtmp.test-3-0 
+ 3 0
+mrtmp.test-4-0 
+ 4 0
+mrtmp.test-5-0 
+ 5 0
+mrtmp.test-6-0 
+ 6 0
+mrtmp.test-7-0 
+ 7 0
+mrtmp.test-8-0 
+ 8 0
+mrtmp.test-9-0 
+ 9 0
+mrtmp.test-10-0 
+ 10 0
+mrtmp.test-11-0 
+ 11 0
+mrtmp.test-12-0 
+ 12 0
+mrtmp.test-13-0 
+ 13 0
+mrtmp.test-14-0 
+ 14 0
+mrtmp.test-15-0 
+ 15 0
+mrtmp.test-16-0 
+ 16 0
+mrtmp.test-17-0 
+ 17 0
+mrtmp.test-18-0 
+ 18 0
+mrtmp.test-19-0 
+ 19 0
+/var/tmp/824-501/mr4890-worker1: reducePhase task #0 done
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker1: given reducePhase task #1 on file 824-mrinput-1.txt (nios: 20)
+mrtmp.test-0-1 
+ 0 1
+mrtmp.test-1-1 
+ 1 1
+mrtmp.test-2-1 
+ 2 1
+mrtmp.test-3-1 
+ 3 1
+mrtmp.test-4-1 
+ 4 1
+mrtmp.test-5-1 
+ 5 1
+mrtmp.test-6-1 
+ 6 1
+mrtmp.test-7-1 
+ 7 1
+mrtmp.test-8-1 
+ 8 1
+mrtmp.test-9-1 
+ 9 1
+mrtmp.test-10-1 
+ 10 1
+mrtmp.test-11-1 
+ 11 1
+mrtmp.test-12-1 
+ 12 1
+mrtmp.test-13-1 
+ 13 1
+mrtmp.test-14-1 
+ 14 1
+mrtmp.test-15-1 
+ 15 1
+mrtmp.test-16-1 
+ 16 1
+mrtmp.test-17-1 
+ 17 1
+mrtmp.test-18-1 
+ 18 1
+mrtmp.test-19-1 
+ 19 1
+/var/tmp/824-501/mr4890-worker1: reducePhase task #1 done
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker1: given reducePhase task #2 on file 824-mrinput-2.txt (nios: 20)
+mrtmp.test-0-2 
+ 0 2
+mrtmp.test-1-2 
+ 1 2
+mrtmp.test-2-2 
+ 2 2
+mrtmp.test-3-2 
+ 3 2
+mrtmp.test-4-2 
+ 4 2
+mrtmp.test-5-2 
+ 5 2
+mrtmp.test-6-2 
+ 6 2
+mrtmp.test-7-2 
+ 7 2
+mrtmp.test-8-2 
+ 8 2
+mrtmp.test-9-2 
+ 9 2
+mrtmp.test-10-2 
+ 10 2
+mrtmp.test-11-2 
+ 11 2
+mrtmp.test-12-2 
+ 12 2
+mrtmp.test-13-2 
+ 13 2
+mrtmp.test-14-2 
+ 14 2
+mrtmp.test-15-2 
+ 15 2
+mrtmp.test-16-2 
+ 16 2
+mrtmp.test-17-2 
+ 17 2
+mrtmp.test-18-2 
+ 18 2
+mrtmp.test-19-2 
+ 19 2
+/var/tmp/824-501/mr4890-worker1: reducePhase task #2 done
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker1: given reducePhase task #3 on file 824-mrinput-3.txt (nios: 20)
+mrtmp.test-0-3 
+ 0 3
+mrtmp.test-1-3 
+ 1 3
+mrtmp.test-2-3 
+ 2 3
+mrtmp.test-3-3 
+ 3 3
+mrtmp.test-4-3 
+ 4 3
+mrtmp.test-5-3 
+ 5 3
+mrtmp.test-6-3 
+ 6 3
+mrtmp.test-7-3 
+ 7 3
+mrtmp.test-8-3 
+ 8 3
+mrtmp.test-9-3 
+ 9 3
+mrtmp.test-10-3 
+ 10 3
+mrtmp.test-11-3 
+ 11 3
+mrtmp.test-12-3 
+ 12 3
+mrtmp.test-13-3 
+ 13 3
+mrtmp.test-14-3 
+ 14 3
+mrtmp.test-15-3 
+ 15 3
+mrtmp.test-16-3 
+ 16 3
+mrtmp.test-17-3 
+ 17 3
+mrtmp.test-18-3 
+ 18 3
+mrtmp.test-19-3 
+ 19 3
+/var/tmp/824-501/mr4890-worker1: reducePhase task #3 done
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker1: given reducePhase task #6 on file 824-mrinput-6.txt (nios: 20)
+mrtmp.test-0-6 
+ 0 6
+mrtmp.test-1-6 
+ 1 6
+mrtmp.test-2-6 
+ 2 6
+mrtmp.test-3-6 
+ 3 6
+mrtmp.test-4-6 
+ 4 6
+mrtmp.test-5-6 
+ 5 6
+mrtmp.test-6-6 
+ 6 6
+mrtmp.test-7-6 
+ 7 6
+mrtmp.test-8-6 
+ 8 6
+mrtmp.test-9-6 
+ 9 6
+mrtmp.test-10-6 
+ 10 6
+mrtmp.test-11-6 
+ 11 6
+mrtmp.test-12-6 
+ 12 6
+mrtmp.test-13-6 
+ 13 6
+mrtmp.test-14-6 
+ 14 6
+mrtmp.test-15-6 
+ 15 6
+mrtmp.test-16-6 
+ 16 6
+mrtmp.test-17-6 
+ 17 6
+mrtmp.test-18-6 
+ 18 6
+mrtmp.test-19-6 
+ 19 6
+/var/tmp/824-501/mr4890-worker1: reducePhase task #6 done
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker1: given reducePhase task #5 on file 824-mrinput-5.txt (nios: 20)
+mrtmp.test-0-5 
+ 0 5
+mrtmp.test-1-5 
+ 1 5
+mrtmp.test-2-5 
+ 2 5
+mrtmp.test-3-5 
+ 3 5
+mrtmp.test-4-5 
+ 4 5
+mrtmp.test-5-5 
+ 5 5
+mrtmp.test-6-5 
+ 6 5
+mrtmp.test-7-5 
+ 7 5
+mrtmp.test-8-5 
+ 8 5
+mrtmp.test-9-5 
+ 9 5
+mrtmp.test-10-5 
+ 10 5
+mrtmp.test-11-5 
+ 11 5
+mrtmp.test-12-5 
+ 12 5
+mrtmp.test-13-5 
+ 13 5
+mrtmp.test-14-5 
+ 14 5
+mrtmp.test-15-5 
+ 15 5
+mrtmp.test-16-5 
+ 16 5
+mrtmp.test-17-5 
+ 17 5
+mrtmp.test-18-5 
+ 18 5
+mrtmp.test-19-5 
+ 19 5
+/var/tmp/824-501/mr4890-worker1: reducePhase task #5 done
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker1: given reducePhase task #7 on file 824-mrinput-7.txt (nios: 20)
+mrtmp.test-0-7 
+ 0 7
+mrtmp.test-1-7 
+ 1 7
+mrtmp.test-2-7 
+ 2 7
+mrtmp.test-3-7 
+ 3 7
+mrtmp.test-4-7 
+ 4 7
+mrtmp.test-5-7 
+ 5 7
+mrtmp.test-6-7 
+ 6 7
+mrtmp.test-7-7 
+ 7 7
+mrtmp.test-8-7 
+ 8 7
+mrtmp.test-9-7 
+ 9 7
+mrtmp.test-10-7 
+ 10 7
+mrtmp.test-11-7 
+ 11 7
+mrtmp.test-12-7 
+ 12 7
+mrtmp.test-13-7 
+ 13 7
+mrtmp.test-14-7 
+ 14 7
+mrtmp.test-15-7 
+ 15 7
+mrtmp.test-16-7 
+ 16 7
+mrtmp.test-17-7 
+ 17 7
+mrtmp.test-18-7 
+ 18 7
+mrtmp.test-19-7 
+ 19 7
+/var/tmp/824-501/mr4890-worker1: reducePhase task #7 done
+rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker1: given reducePhase task #8 on file 824-mrinput-8.txt (nios: 20)
+mrtmp.test-0-8 
+ 0 8
+mrtmp.test-1-8 
+ 1 8
+mrtmp.test-2-8 
+ 2 8
+mrtmp.test-3-8 
+ 3 8
+mrtmp.test-4-8 
+ 4 8
+mrtmp.test-5-8 
+ 5 8
+mrtmp.test-6-8 
+ 6 8
+mrtmp.test-7-8 
+ 7 8
+mrtmp.test-8-8 
+ 8 8
+mrtmp.test-9-8 
+ 9 8
+mrtmp.test-10-8 
+ 10 8
+mrtmp.test-11-8 
+ 11 8
+mrtmp.test-12-8 
+ 12 8
+mrtmp.test-13-8 
+ 13 8
+mrtmp.test-14-8 
+ 14 8
+mrtmp.test-15-8 
+ 15 8
+mrtmp.test-16-8 
+ 16 8
+mrtmp.test-17-8 
+ 17 8
+mrtmp.test-18-8 
+ 18 8
+mrtmp.test-19-8 
+ 19 8
+/var/tmp/824-501/mr4890-worker1: reducePhase task #8 done
+new rpc_address: /var/tmp/824-501/mr4890-worker1
+/var/tmp/824-501/mr4890-worker1: given reducePhase task #9 on file 824-mrinput-9.txt (nios: 20)
+mrtmp.test-0-9 
+ 0 9
+mrtmp.test-1-9 
+ 1 9
+mrtmp.test-2-9 
+ 2 9
+mrtmp.test-3-9 
+ 3 9
+mrtmp.test-4-9 
+ 4 9
+mrtmp.test-5-9 
+ 5 9
+mrtmp.test-6-9 
+ 6 9
+mrtmp.test-7-9 
+ 7 9
+mrtmp.test-8-9 
+ 8 9
+mrtmp.test-9-9 
+ 9 9
+mrtmp.test-10-9 
+ 10 9
+mrtmp.test-11-9 
+ 11 9
+mrtmp.test-12-9 
+ 12 9
+mrtmp.test-13-9 
+ 13 9
+mrtmp.test-14-9 
+ 14 9
+mrtmp.test-15-9 
+ 15 9
+mrtmp.test-16-9 
+ 16 9
+mrtmp.test-17-9 
+ 17 9
+mrtmp.test-18-9 
+ 18 9
+mrtmp.test-19-9 
+ 19 9
+/var/tmp/824-501/mr4890-worker1: reducePhase task #9 done
 Schedule: reducePhase done
+Master: RPC /var/tmp/824-501/mr4890-worker0 shutdown error
 Merge: read mrtmp.test-res-0
-2018/08/20 10:32:29 Merge: open mrtmp.test-res-0: no such file or directory
-exit status 1
-FAIL	_/Users/wangshaobo/Documents/WorkSpace/MIT6.824/src/mapreduce	0.263s
+Merge: read mrtmp.test-res-1
+Merge: read mrtmp.test-res-2
+Merge: read mrtmp.test-res-3
+Merge: read mrtmp.test-res-4
+Merge: read mrtmp.test-res-5
+Merge: read mrtmp.test-res-6
+Merge: read mrtmp.test-res-7
+Merge: read mrtmp.test-res-8
+Merge: read mrtmp.test-res-9
+/var/tmp/824-501/mr4890-master: Map/Reduce task completed
+PASS
+ok  	_/Users/wangshaobo/Documents/WorkSpace/MIT6.824/src/mapreduce	2.689s
