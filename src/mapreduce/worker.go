@@ -106,12 +106,14 @@ func (wk *Worker) Shutdown(_ *struct{}, res *ShutdownReply) error {
 
 // Tell the master we exist and ready to work
 func (wk *Worker) register(master string) {
+
 	args := new(RegisterArgs)
 	args.Worker = wk.name
 	ok := call(master, "Master.Register", args, new(struct{}))
 	if ok == false {
 		fmt.Printf("Register: RPC %s register error\n", master)
 	}
+
 }
 
 // RunWorker sets up a connection with the master, registers its address, and
@@ -129,7 +131,10 @@ func RunWorker(MasterAddress string, me string,
 	wk.nRPC = nRPC
 	wk.parallelism = parallelism
 	rpcs := rpc.NewServer()
+	//fmt.Printf("1111\n")
 	rpcs.Register(wk)
+	//fmt.Printf("2222\n")
+
 	os.Remove(me) // only needed for "unix"
 	l, e := net.Listen("unix", me)
 	if e != nil {

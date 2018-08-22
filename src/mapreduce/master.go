@@ -38,10 +38,10 @@ func (mr *Master) Register(args *RegisterArgs, _ *struct{}) error {
 	defer mr.Unlock()
 	debug("Register: worker %s\n", args.Worker)
 	mr.workers = append(mr.workers, args.Worker)
+	//fmt.Printf("-----Register: worker %s\n", args.Worker)
 
 	// tell forwardRegistrations() that there's a new workers[] entry.
 	mr.newCond.Broadcast()
-
 	return nil
 }
 
@@ -84,13 +84,20 @@ func Sequential(jobName string, files []string, nreduce int,
 // reads ch to learn about workers.
 func (mr *Master) forwardRegistrations(ch chan string) {
 	i := 0
+	fmt.Printf("mr.workers:%v\n",len(mr.workers))
 	for {
+		fmt.Printf("i:%v\n",i)
 		mr.Lock()
 		if len(mr.workers) > i {
+			//fmt.Printf("in if i:%v\n",i)
 			// there's a worker that we haven't told schedule() about.
 			w := mr.workers[i]
-			go func() { ch <- w }() // send without holding the lock.
+			go func() { 
+				//fmt.Printf("in go i:%v\n",i) 
+				ch <- w 
+			}() // send without holding the lock.
 			i = i + 1
+			//fmt.Printf("out if i:%v\n",i)
 		} else {
 			// wait for Register() to add an entry to workers[]
 			// in response to an RPC from a new worker.
@@ -103,8 +110,10 @@ func (mr *Master) forwardRegistrations(ch chan string) {
 // Distributed schedules map and reduce tasks on workers that register with the
 // master over RPC.
 func Distributed(jobName string, files []string, nreduce int, master string) (mr *Master) {
+	fmt.Printf("start Distributed\n")
 	mr = newMaster(master)
 	mr.startRPCServer()
+	
 	go mr.run(jobName, files, nreduce,
 		func(phase jobPhase) {
 			ch := make(chan string)

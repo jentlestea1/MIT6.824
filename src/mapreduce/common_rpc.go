@@ -49,7 +49,7 @@ type RegisterArgs struct {
 // function.
 //
 func call(srv string, rpcname string,
-	args interface{}, reply interface{}) bool {
+	args interface{}, reply interface{}) bool {    //连接服务器，"unix"表示网络类型
 	c, errx := rpc.Dial("unix", srv)
 	if errx != nil {
 		return false
